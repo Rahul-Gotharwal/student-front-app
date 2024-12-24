@@ -132,7 +132,22 @@ const Contentarea = ({
             key={student.id}
             className="h-[32px] border-b border-[#edeff0]"
           >
-            <td className="px-2 py-1">{student.name}</td>
+            <td className="">
+            <Tooltip.TooltipProvider>
+                    <Tooltip.Root delayDuration={0} >
+                      <Tooltip.Trigger className="inline-block cursor-pointer">
+                        <span className="px-2 py-1">{student.name}</span>
+                      </Tooltip.Trigger>
+                      <Tooltip.Content
+                        side="top"
+                        className=" bg-gray-200 text-black p-2 rounded shadow-md"
+                      >
+                       {student.email}
+                        <Tooltip.Arrow className="fill-black" />
+                      </Tooltip.Content>
+                    </Tooltip.Root>
+                    </Tooltip.TooltipProvider>
+            </td>
             <td className="px-2 py-1">{student.cohort}</td>
             <td className="px-2 py-1 flex flex-wrap items-center gap-2">
               <div className="flex flex-wrap gap-2">
